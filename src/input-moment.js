@@ -1,10 +1,10 @@
 import cx from 'classnames';
 import React, { Component } from 'react';
 import { translate } from './locale'
-import timeIcon from './assets/time-icon.svg'
-import timeIconActive from './assets/time-icon-active.svg'
-import calendarIcon from './assets/calendar-icon.svg'
-import calendarIconActive from './assets/calendar-icon-active.svg'
+import timeIcon from '../assets/time-icon.svg'
+import timeIconActive from '../assets/time-icon-active.svg'
+import calendarIcon from '../assets/calendar-icon.svg'
+import calendarIconActive from '../assets/calendar-icon-active.svg'
 import Calendar from './calendar';
 import Time from './time';
 

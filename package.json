@@ -1,6 +1,6 @@
 {
-  "name": "input-moment",
-  "version": "0.4.0",
+  "name": "react-calendar-input",
+  "version": "1.0.0",
   "description": "React datetime picker powered by momentjs",
   "main": "index.js",
   "scripts": {
@@ -17,8 +17,8 @@
   "github-pages-deploy": {
     "src": "example"
   },
-  "author": "Wang Zuo",
-  "license": "ISC",
+  "author": "Alyona Fanifatyeva",
+  "license": "MIT",
   "peerDependencies": {
     "moment": "^2.10.6",
     "react": "^15.0.0 || ^16.0.0",
@@ -56,7 +56,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wangzuo/input-moment.git"
+    "url": "git+https://github.com/b1rd/input-moment.git"
   },
   "keywords": [
     "react",
@@ -67,7 +67,7 @@
     "moment"
   ],
   "bugs": {
-    "url": "https://github.com/wangzuo/input-moment/issues"
+    "url": "https://github.com/b1rd/input-moment"
   },
-  "homepage": "https://github.com/wangzuo/input-moment#readme"
+  "homepage": "https://github.com/b1rd/input-moment#readme"
 }

@@ -3,8 +3,8 @@ import cx from 'classnames';
 import { translate } from './locale'
 import range from 'lodash/range';
 import chunk from 'lodash/chunk';
-import prevMonthIcon from './assets/prev-month-icon.svg'
-import nextMonthIcon from './assets/next-month-icon.svg'
+import prevMonthIcon from '../assets/prev-month-icon.svg'
+import nextMonthIcon from '../assets/next-month-icon.svg'
 
 const Day = ({ i, w, d, className, ...props }) => {
   const prevMonth = w === 0 && i > 7;
