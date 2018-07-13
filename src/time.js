@@ -25,7 +25,7 @@ export default class extends Component {
       <div className={cx('m-time', this.props.className)}>
         <div className="showtime">
           <span className="time">{m.format('HH')}</span>
-          <span className="separater">:</span>
+          <span className="separator">:</span>
           <span className="time">{m.format('mm')}</span>
         </div>
 
@@ -39,7 +39,7 @@ export default class extends Component {
             x={m.hour()}
             onChange={this.changeHours}
           />
-          <div className="time-text">{t('minutes')}:</div>
+          <div className="time-text time-text__minutes">{t('minutes')}:</div>
           <InputSlider
             className="u-slider-time"
             xmin={0}

@@ -2,17 +2,17 @@
 
 .m-time {
   color: @color-white;
-  padding-top: 30px;
+  padding-top: 10px;
 
   .showtime {
     text-align: center;
   }
 
-  .separater {
+  .separator {
     display: inline-block;
     font-size: 32px;
     font-weight: bold;
-    color: @color-blue;
+    color: #97a1bc;
     width: 32px;
     height: 65px;
     line-height: 65px;
@@ -22,24 +22,30 @@
   .time-text {
     position: relative;
     left: -10px;
-    font-size: 15px;
-    color: @color-blue;
+    font-size: 12px;
+    font-weight: bold;
+    color: #22366d;
     margin-top: 7px;
-    margin-bottom: 10px;
+    &__minutes {
+      margin-top: 30px;
+    }
   }
 
   .sliders {
+    margin-top: 35px;
     padding: 0 10px;
   }
 
   .time {
     width: 65px;
-    height: 65px;
+    height: 70px;
     display: inline-block;
-    font-size: 38px;
+    border-radius: 4px;
+    background-color: #f5f7f9;
+    font-size: 32px;
+    font-weight: bold;
+    color: #122966;
     line-height: 65px;
-    background-color: @color-blue;
-    border-radius: 3px;
     text-align: center;
   }
 }
