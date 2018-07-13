@@ -1,6 +1,10 @@
 import cx from 'classnames';
 import React, { Component } from 'react';
 import { translate } from './locale'
+import timeIcon from './assets/time-icon.svg'
+import timeIconActive from './assets/time-icon-active.svg'
+import calendarIcon from './assets/calendar-icon.svg'
+import calendarIconActive from './assets/calendar-icon-active.svg'
 import Calendar from './calendar';
 import Time from './time';
 
@@ -47,16 +51,18 @@ export default class InputMoment extends Component {
         <div className="options">
           <button
             type="button"
-            className={cx('ion-calendar im-btn', { 'is-active': tab === 0 })}
+            className={cx('im-btn', { 'is-active': tab === 0 })}
             onClick={e => this.handleClickTab(e, 0)}
           >
+            <img src={`/${tab === 0 ? calendarIconActive : calendarIcon}`} className="im-btn__icon" />
             {t('date')}
           </button>
           <button
             type="button"
-            className={cx('ion-clock im-btn', { 'is-active': tab === 1 })}
+            className={cx('im-btn', { 'is-active': tab === 1 })}
             onClick={e => this.handleClickTab(e, 1)}
           >
+            <img src={`/${tab === 1 ? timeIconActive : timeIcon}`} className="im-btn__icon" />
             {t('time')}
           </button>
         </div>
@@ -83,7 +89,7 @@ export default class InputMoment extends Component {
         {this.props.onSave ? (
           <button
             type="button"
-            className="im-btn btn-save ion-checkmark"
+            className="im-btn btn-save"
             onClick={this.handleSave}
           >
             {t('save')}

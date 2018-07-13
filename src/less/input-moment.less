@@ -4,12 +4,22 @@
 @import 'slider';
 
 .im-btn {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #ffffff;
   border: 0;
   outline: 0;
   cursor: pointer;
   line-height: 1;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #63729a;
+  &__icon {
+    margin-right: 15px;
+  }
 
   &:before {
     margin-right: 6px;
@@ -18,8 +28,8 @@
 
 .m-input-moment {
   display: inline-block;
-  width: 330px;
-  padding: 12px 15px;
+  width: 300px;
+  padding: 15px 25px;
   border-radius: 3px;
   border: 1px solid @color-gray;
 
@@ -31,12 +41,10 @@
     button {
       float: left;
       width: 50%;
-      color: @color-blue;
       text-align: center;
       font-size: 16px;
       padding: 7px;
-      border: 1px solid @color-blue;
-      border-radius: 3px;
+      border-bottom: 1px solid #DADDE5;
 
       &:first-child {
         border-top-right-radius: 0;
@@ -49,15 +57,17 @@
       }
 
       &.is-active {
-        color: #ffffff;
-        background-color: @color-blue;
+        color: @color-blue;
+        box-shadow: inset 0 -1px 0px 0px @color-blue;
+        border-bottom: 2px solid @color-blue;
+
       }
     }
   }
 
   .tab {
     display: none;
-    height: 310px;
+    height: 240px;
 
     &.is-active {
       display: block;
@@ -65,7 +75,7 @@
   }
 
   .tabs {
-    margin-bottom: 11px;
+    margin-bottom: 30px;
   }
 
   .btn-save {
@@ -73,10 +83,12 @@
     margin-top: 10px;
     width: 100%;
     background-color: @color-blue;
-    padding: 12px 0;
+    padding: 10px 0;
     text-align: center;
     color: #ffffff;
-    font-size: 16px;
-    border-radius: 3px;
+    font-size: 14px;
+    border-radius: 2px;
+    font-weight: normal;
+    line-height: normal;
   }
 }

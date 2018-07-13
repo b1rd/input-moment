@@ -3,13 +3,15 @@ import cx from 'classnames';
 import { translate } from './locale'
 import range from 'lodash/range';
 import chunk from 'lodash/chunk';
+import prevMonthIcon from './assets/prev-month-icon.svg'
+import nextMonthIcon from './assets/next-month-icon.svg'
 
 const Day = ({ i, w, d, className, ...props }) => {
   const prevMonth = w === 0 && i > 7;
   const nextMonth = w >= 4 && i <= 14;
   const cls = cx({
     'prev-month': prevMonth,
-    'next-month': nextMonth,
+    'next-month-calendar': nextMonth,
     'current-day': !prevMonth && !nextMonth && i === d
   });
 
@@ -60,11 +62,11 @@ export default class Calendar extends Component {
       <div className={cx('m-calendar', this.props.className)}>
         <div className="toolbar">
           <button type="button" className="prev-month" onClick={this.prevMonth}>
-            <i className={this.props.prevMonthIcon} />
+            <img className="prev-month__icon" src={`/${prevMonthIcon}`} />
           </button>
           <span className="current-date">{m.format('MMMM YYYY')}</span>
           <button type="button" className="next-month" onClick={this.nextMonth}>
-            <i className={this.props.nextMonthIcon} />
+            <img className="next-month__icon" src={`/${nextMonthIcon}`} />
           </button>
         </div>
 
