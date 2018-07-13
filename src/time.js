@@ -1,6 +1,7 @@
 import cx from 'classnames';
 import React, { Component } from 'react';
 import InputSlider from 'react-input-slider';
+import { translate } from './locale'
 
 export default class extends Component {
   changeHours = pos => {
@@ -16,7 +17,9 @@ export default class extends Component {
   };
 
   render() {
+    const { locale } = this.props
     const m = this.props.moment;
+    const t = translate(locale)
 
     return (
       <div className={cx('m-time', this.props.className)}>
@@ -27,7 +30,7 @@ export default class extends Component {
         </div>
 
         <div className="sliders">
-          <div className="time-text">Hours:</div>
+          <div className="time-text">{t('hours')}:</div>
           <InputSlider
             className="u-slider-time"
             xmin={0}
@@ -36,7 +39,7 @@ export default class extends Component {
             x={m.hour()}
             onChange={this.changeHours}
           />
-          <div className="time-text">Minutes:</div>
+          <div className="time-text">{t('minutes')}:</div>
           <InputSlider
             className="u-slider-time"
             xmin={0}

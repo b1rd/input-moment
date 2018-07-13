@@ -1,6 +1,6 @@
 import cx from 'classnames';
-import moment from 'moment';
 import React, { Component } from 'react';
+import { translate } from './locale'
 import Calendar from './calendar';
 import Time from './time';
 
@@ -9,7 +9,8 @@ export default class InputMoment extends Component {
     prevMonthIcon: 'ion-ios-arrow-left',
     nextMonthIcon: 'ion-ios-arrow-right',
     minStep: 1,
-    hourStep: 1
+    hourStep: 1,
+    locale: 'en'
   };
 
   state = {
@@ -36,10 +37,11 @@ export default class InputMoment extends Component {
       minStep,
       hourStep,
       onSave,
+      locale,
       ...props
     } = this.props;
     const cls = cx('m-input-moment', className);
-
+    const t = translate(locale)
     return (
       <div className={cls} {...props}>
         <div className="options">
@@ -48,14 +50,14 @@ export default class InputMoment extends Component {
             className={cx('ion-calendar im-btn', { 'is-active': tab === 0 })}
             onClick={e => this.handleClickTab(e, 0)}
           >
-            Date
+            {t('date')}
           </button>
           <button
             type="button"
             className={cx('ion-clock im-btn', { 'is-active': tab === 1 })}
             onClick={e => this.handleClickTab(e, 1)}
           >
-            Time
+            {t('time')}
           </button>
         </div>
 
@@ -63,6 +65,7 @@ export default class InputMoment extends Component {
           <Calendar
             className={cx('tab', { 'is-active': tab === 0 })}
             moment={m}
+            locale={locale}
             onChange={this.props.onChange}
             prevMonthIcon={this.props.prevMonthIcon}
             nextMonthIcon={this.props.nextMonthIcon}
@@ -70,6 +73,7 @@ export default class InputMoment extends Component {
           <Time
             className={cx('tab', { 'is-active': tab === 1 })}
             moment={m}
+            locale={locale}
             minStep={this.props.minStep}
             hourStep={this.props.hourStep}
             onChange={this.props.onChange}
@@ -82,7 +86,7 @@ export default class InputMoment extends Component {
             className="im-btn btn-save ion-checkmark"
             onClick={this.handleSave}
           >
-            Save
+            {t('save')}
           </button>
         ) : null}
       </div>

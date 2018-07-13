@@ -1,6 +1,6 @@
-import moment from 'moment';
 import React, { Component } from 'react';
 import cx from 'classnames';
+import { translate } from './locale'
 import range from 'lodash/range';
 import chunk from 'lodash/chunk';
 
@@ -41,6 +41,7 @@ export default class Calendar extends Component {
   };
 
   render() {
+    const { locale } = this.props
     const m = this.props.moment;
     const d = m.date();
     const d1 = m.clone().subtract(1, 'month').endOf('month').date();
@@ -51,7 +52,9 @@ export default class Calendar extends Component {
       range(1, d3 + 1),
       range(1, 42 - d3 - d2 + 1)
     );
-    const weeks = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const t = translate(locale)
+    const weeks = t('week')
+    // const weeks = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
     return (
       <div className={cx('m-calendar', this.props.className)}>
