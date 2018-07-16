@@ -3,8 +3,7 @@ import cx from 'classnames';
 import { translate } from './locale'
 import range from 'lodash/range';
 import chunk from 'lodash/chunk';
-import prevMonthIcon from '../assets/prev-month-icon.svg'
-import nextMonthIcon from '../assets/next-month-icon.svg'
+
 
 const Day = ({ i, w, d, className, ...props }) => {
   const prevMonth = w === 0 && i > 7;
@@ -43,7 +42,7 @@ export default class Calendar extends Component {
   };
 
   render() {
-    const { locale } = this.props
+    const { locale, prevMonthIcon, nextMonthIcon } = this.props
     const m = this.props.moment;
     const d = m.date();
     const d1 = m.clone().subtract(1, 'month').endOf('month').date();
@@ -62,11 +61,11 @@ export default class Calendar extends Component {
       <div className={cx('m-calendar', this.props.className)}>
         <div className="toolbar">
           <button type="button" className="prev-month" onClick={this.prevMonth}>
-            <img className="prev-month__icon" src={`/${prevMonthIcon}`} />
+            <img className="prev-month__icon" src={prevMonthIcon} />
           </button>
           <span className="current-date">{m.format('MMMM YYYY')}</span>
           <button type="button" className="next-month" onClick={this.nextMonth}>
-            <img className="next-month__icon" src={`/${nextMonthIcon}`} />
+            <img className="next-month__icon" src={nextMonthIcon} />
           </button>
         </div>
 

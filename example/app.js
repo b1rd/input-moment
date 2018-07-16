@@ -1,10 +1,16 @@
-import '../src/less/input-moment.less';
+import '../dist/input-moment.css';
 import './app.less';
 import moment from 'moment';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import InputMoment from '../src/input-moment';
 import packageJson from '../package.json';
+import prevMonthIcon from '../assets/prev-month-icon.svg'
+import nextMonthIcon from '../assets/next-month-icon.svg'
+import timeIcon from '../assets/time-icon.svg'
+import timeIconActive from '../assets/time-icon-active.svg'
+import calendarIcon from '../assets/calendar-icon.svg'
+import calendarIconActive from '../assets/calendar-icon-active.svg'
 
 class App extends Component {
   state = {
@@ -36,6 +42,12 @@ class App extends Component {
             minStep={5}
             onSave={this.handleSave}
             locale="ru"
+            prevMonthIcon={`/${prevMonthIcon}`}
+            nextMonthIcon={`/${nextMonthIcon}`}
+            timeIcon={`/${timeIcon}`}
+            timeIconActive={`/${timeIconActive}`}
+            calendarIcon={`/${calendarIcon}`}
+            calendarIconActive={`/${calendarIconActive}`}
           />
         </form>
       </div>

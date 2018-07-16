@@ -1,5 +1,5 @@
 {
-  "name": "react-calendar-input",
+  "name": "calendar-input-react",
   "version": "1.0.0",
   "description": "React datetime picker powered by momentjs",
   "main": "index.js",
@@ -10,7 +10,6 @@
     "build": "npm run build-js && npm run build-css",
     "deploy": "rm -rf .publish && npm run build && github-pages-deploy",
     "pretest": "npm run build",
-    "test": "jest",
     "prepublish": "npm test",
     "clean": "rm dist/* && rm example/bundle*"
   },
