@@ -55,7 +55,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/b1rd/input-moment.git"
+    "url": "git+https://github.com/skyeer/input-moment"
   },
   "keywords": [
     "react",
@@ -66,7 +66,7 @@
     "moment"
   ],
   "bugs": {
-    "url": "https://github.com/b1rd/input-moment"
+    "url": "https://github.com/skyeer/input-moment"
   },
-  "homepage": "https://github.com/b1rd/input-moment#readme"
+  "homepage": "https://github.com/skyeer/input-moment#readme"
 }
