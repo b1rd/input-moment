@@ -1,5 +1,6 @@
 import cx from 'classnames';
 import React, { Component } from 'react';
+import moment from 'moment';
 import { translate } from './locale'
 import Calendar from './calendar';
 import Time from './time';
@@ -13,8 +14,15 @@ export default class InputMoment extends Component {
   };
 
   state = {
-    tab: 0
+    tab: 0,
+    currentDate: null,
+    currentTime: null
   };
+
+  handleChange = (m, key) => {
+    this.setState({ [key]: m})
+    this.props.onChange(m)
+  }
 
   handleClickTab = (e, tab) => {
     e.preventDefault();
@@ -27,7 +35,7 @@ export default class InputMoment extends Component {
   };
 
   render() {
-    const { tab } = this.state;
+    const { tab, currentDate, currentTime } = this.state;
     const {
       moment: m,
       className,
@@ -43,8 +51,11 @@ export default class InputMoment extends Component {
       calendarIconActive,
       ...props
     } = this.props;
+    console.log(this.state)
+    const stateMoment = m || moment()
     const cls = cx('m-input-moment', className);
     const t = translate(locale)
+    console.log(this.props)
     return (
       <div className={cls} {...props}>
         <div className="m-input-moment__options options">
@@ -69,25 +80,27 @@ export default class InputMoment extends Component {
         <div className="m-input-moment__tabs tabs">
           <Calendar
             className={cx('m-input-moment__tab m-calendar', { 'm-input-moment__tab_active': tab === 0 })}
-            moment={m}
+            moment={stateMoment}
+            currentDate={currentDate}
             locale={locale}
             prevMonthIcon={prevMonthIcon}
             nextMonthIcon={nextMonthIcon}
-            onChange={this.props.onChange}
+            onChange={this.handleChange}
           />
           <Time
             className={cx('m-input-moment__tab m-time', { 'm-input-moment__tab_active': tab === 1 })}
-            moment={m}
+            moment={stateMoment}
             locale={locale}
             minStep={this.props.minStep}
             hourStep={this.props.hourStep}
-            onChange={this.props.onChange}
+            onChange={this.handleChange}
           />
         </div>
 
         {this.props.onSave ? (
           <button
             type="button"
+            disabled={!currentDate || !currentTime}
             className="m-input-moment__button m-input-moment__button_save im-btn btn-save"
             onClick={this.handleSave}
           >

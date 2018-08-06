@@ -1,24 +1,25 @@
 import cx from 'classnames';
 import React, { Component } from 'react';
 import InputSlider from 'react-input-slider';
+import moment from 'moment';
 import { translate } from './locale'
 
 export default class extends Component {
   changeHours = pos => {
     const m = this.props.moment;
     m.hours(pos.x);
-    this.props.onChange(m);
+    this.props.onChange(m, 'currentTime');
   };
 
   changeMinutes = pos => {
     const m = this.props.moment;
     m.minutes(pos.x);
-    this.props.onChange(m);
+    this.props.onChange(m, 'currentTime');
   };
 
   render() {
     const { locale, className } = this.props
-    const m = this.props.moment;
+    const m = this.props.moment || moment()
     const t = translate(locale)
 
     return (

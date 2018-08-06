@@ -14,7 +14,7 @@ import calendarIconActive from '../assets/calendar-icon-active.svg'
 
 class App extends Component {
   state = {
-    m: moment()
+    m: ''
   };
 
   handleChange = m => {
@@ -34,7 +34,7 @@ class App extends Component {
         <h2>{packageJson.description}</h2>
         <form>
           <div className="input">
-            <input type="text" value={this.state.m.format('llll')} readOnly />
+            <input type="text" value={this.state.m && this.state.m.format('llll')} readOnly />
           </div>
           <InputMoment
             moment={this.state.m}

@@ -5,15 +5,14 @@ import range from 'lodash/range';
 import chunk from 'lodash/chunk';
 import './styles/calendar.scss'
 
-const Day = ({ i, w, d, className, ...props }) => {
+const Day = ({ i, w, d, className, currentDate, ...props }) => {
   const prevMonth = w === 0 && i > 7;
   const nextMonth = w >= 4 && i <= 14;
   const cls = cx('m-calendar__td m-calendar__td_body', {
     'prev-month': prevMonth,
     'm-calendar__td_next next-month-calendar': nextMonth,
-    'current-day': !prevMonth && !nextMonth && i === d
+    'current-day': !prevMonth && !nextMonth && i === d && currentDate
   });
-
   return <td className={cls} {...props}>{i}</td>;
 };
 
@@ -25,10 +24,9 @@ export default class Calendar extends Component {
 
     if (prevMonth) m.subtract(1, 'month');
     if (nextMonth) m.add(1, 'month');
-
-    m.date(i);
-
-    this.props.onChange(m);
+    m.date(i)
+    m.hours(0).minutes(0)
+    this.props.onChange(m, 'currentDate');
   };
 
   prevMonth = e => {
@@ -42,7 +40,7 @@ export default class Calendar extends Component {
   };
 
   render() {
-    const { locale, prevMonthIcon, nextMonthIcon, className } = this.props
+    const { locale, prevMonthIcon, nextMonthIcon, className, currentDate } = this.props
     const m = this.props.moment;
     const d = m.date();
     const d1 = m.clone().subtract(1, 'month').endOf('month').date();
@@ -55,7 +53,6 @@ export default class Calendar extends Component {
     );
     const t = translate(locale)
     const weeks = t('week')
-    // const weeks = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     
     return (
       <div className={className}>
@@ -85,6 +82,7 @@ export default class Calendar extends Component {
                     i={i}
                     d={d}
                     w={w}
+                    currentDate={currentDate}
                     onClick={() => this.selectDate(i, w)}
                   />
                 )}
