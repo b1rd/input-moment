@@ -1,11 +1,12 @@
 @import './variables';
-
 .m-input-moment {
   display: inline-block;
   width: 300px;
   padding: 15px 25px;
   border-radius: 3px;
   border: 1px solid $color-gray;
+  background: $color-white;
+  box-shadow: 0 12px 20px 0 rgba(128, 145, 192, 0.6);
   &__options {
     width: 100%;
     display: inline-block;
