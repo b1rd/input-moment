@@ -1,3 +1,4 @@
+const path = require('path');
 module.exports = {
   entry: {
     'dist/input-moment': './index.js',
@@ -17,6 +18,10 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
       },
+      {
+        test: /\.scss$/,
+        loader: 'style-loader!css-loader!sass-loader'
+      }
     ]
   },
   externals: {
@@ -24,5 +29,8 @@ module.exports = {
     'react-dom': 'ReactDOM',
     moment: 'moment'
   },
-  devtool: 'source-map'
+  devtool: 'source-map',
+  resolve: {
+    root: path.resolve('./')
+  }
 };

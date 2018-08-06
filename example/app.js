@@ -1,5 +1,5 @@
-import '../dist/input-moment.css';
-import './app.less';
+
+import './app.scss';
 import moment from 'moment';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';

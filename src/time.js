@@ -17,31 +17,31 @@ export default class extends Component {
   };
 
   render() {
-    const { locale } = this.props
+    const { locale, className } = this.props
     const m = this.props.moment;
     const t = translate(locale)
 
     return (
-      <div className={cx('m-time', this.props.className)}>
-        <div className="showtime">
-          <span className="time">{m.format('HH')}</span>
-          <span className="separator">:</span>
-          <span className="time">{m.format('mm')}</span>
+      <div className={className}>
+        <div className="m-time__showtime">
+          <span className="m-time__showtime_time">{m.format('HH')}</span>
+          <span className="m-time__showtime_separator">:</span>
+          <span className="m-time__showtime_time">{m.format('mm')}</span>
         </div>
 
-        <div className="sliders">
-          <div className="time-text">{t('hours')}:</div>
+        <div className="m-time__sliders">
+          <div className="m-time__sliders-text m-time__sliders-text_hours time-text">{t('hours')}:</div>
           <InputSlider
-            className="u-slider-time"
+            className="m-time__slider u-slider-time"
             xmin={0}
             xmax={23}
             xstep={this.props.hourStep}
             x={m.hour()}
             onChange={this.changeHours}
           />
-          <div className="time-text time-text__minutes">{t('minutes')}:</div>
+          <div className="m-time__sliders-text m-time__sliders-text_minutes time-text time-text__minutes">{t('minutes')}:</div>
           <InputSlider
-            className="u-slider-time"
+            className="m-time__slider u-slider-time"
             xmin={0}
             xmax={59}
             xstep={this.props.minStep}

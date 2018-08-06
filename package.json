@@ -6,8 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server -c --port=8080",
     "build-js": "rm -rf lib && babel src --out-dir lib && webpack -p",
-    "build-css": "lessc --clean-css src/less/input-moment.less dist/input-moment.css",
-    "build": "npm run build-js && npm run build-css",
+    "build": "npm run build-js",
     "deploy": "rm -rf .publish && npm run build && github-pages-deploy",
     "pretest": "npm run build",
     "prepublish": "npm test",
@@ -40,11 +39,13 @@
     "less-loader": "^2.2.1",
     "less-plugin-clean-css": "^1.5.1",
     "moment": "^2.17.1",
+    "node-sass": "^4.9.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-test-renderer": "^16.0.0",
-    "style-loader": "^0.13.0",
-    "webpack": "^1.12.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.13.2",
+    "webpack": "^1.15.0",
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {

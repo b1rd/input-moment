@@ -3,14 +3,14 @@ import cx from 'classnames';
 import { translate } from './locale'
 import range from 'lodash/range';
 import chunk from 'lodash/chunk';
-
+import './styles/calendar.scss'
 
 const Day = ({ i, w, d, className, ...props }) => {
   const prevMonth = w === 0 && i > 7;
   const nextMonth = w >= 4 && i <= 14;
-  const cls = cx({
+  const cls = cx('m-calendar__td m-calendar__td_body', {
     'prev-month': prevMonth,
-    'next-month-calendar': nextMonth,
+    'm-calendar__td_next next-month-calendar': nextMonth,
     'current-day': !prevMonth && !nextMonth && i === d
   });
 
@@ -42,7 +42,7 @@ export default class Calendar extends Component {
   };
 
   render() {
-    const { locale, prevMonthIcon, nextMonthIcon } = this.props
+    const { locale, prevMonthIcon, nextMonthIcon, className } = this.props
     const m = this.props.moment;
     const d = m.date();
     const d1 = m.clone().subtract(1, 'month').endOf('month').date();
@@ -56,23 +56,23 @@ export default class Calendar extends Component {
     const t = translate(locale)
     const weeks = t('week')
     // const weeks = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-
+    
     return (
-      <div className={cx('m-calendar', this.props.className)}>
-        <div className="toolbar">
-          <button type="button" className="prev-month" onClick={this.prevMonth}>
-            <img className="prev-month__icon" src={prevMonthIcon} />
+      <div className={className}>
+        <div className="m-calendar__toolbar">
+          <button type="button" className="m-calendar__button m-calendar__button_prev prev-month" onClick={this.prevMonth}>
+            <img className="m-calendar__icon m-calendar__icon_prev prev-month__icon" src={prevMonthIcon} />
           </button>
-          <span className="current-date">{m.format('MMMM YYYY')}</span>
-          <button type="button" className="next-month" onClick={this.nextMonth}>
-            <img className="next-month__icon" src={nextMonthIcon} />
+          <span className="m-calendar__current-date">{m.format('MMMM YYYY')}</span>
+          <button type="button" className="m-calendar__button m-calendar__button_next next-month" onClick={this.nextMonth}>
+            <img className="m-calendar__icon m-calendar__icon_next next-month__icon" src={nextMonthIcon} />
           </button>
         </div>
 
-        <table>
-          <thead>
-            <tr>
-              {weeks.map((w, i) => <td key={i}>{w}</td>)}
+        <table className="m-calendar__table">
+          <thead className="m-calendar__thead">
+            <tr className="m-calendar__tr m-calendar__tr_head">
+              {weeks.map((w, i) => <td className="m-calendar__td m-calendar__td_head" key={i}>{w}</td>)}
             </tr>
           </thead>
 

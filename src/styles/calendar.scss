@@ -1,0 +1,69 @@
+@import './variables';
+.m-calendar {
+  &__toolbar {
+    line-height: 30px;
+    color: $color-blue;
+    text-align: center;
+    margin-bottom: 13px;
+  }
+  &__button {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    padding: 0;
+    text-align: center;
+    outline: 0;
+    z-index: 5;
+    cursor: pointer;
+    border: none;
+    &_prev {
+      float: left;
+    }
+    &_next {
+      float: right;
+    }
+  }
+  &__current-date {
+    color: #122966;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  &__table {
+    width: 100%;
+    border-spacing: 3px;
+    table-layout: fixed;
+  }
+
+  &__td {
+    padding: 5px 0;
+    text-align: center;
+    cursor: pointer;
+    color: $color-gray;
+    &_head {
+      color: #22366d;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    &_body {
+      color: #63729a;
+      &:hover {
+        background: $color-blue;
+        border-color: $color-blue;
+        color: $color-white;
+        border-radius: 100%;
+      }
+    }
+    &_next {
+      display: none;
+    }
+  }
+  .current-day {
+    background: $color-blue;
+    border-color: $color-blue;
+    color: $color-white;
+    border-radius: 100%;
+  }
+}
