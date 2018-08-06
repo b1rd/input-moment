@@ -51,7 +51,6 @@ export default class InputMoment extends Component {
       calendarIconActive,
       ...props
     } = this.props;
-    console.log(this.state)
     const stateMoment = m || moment()
     const cls = cx('m-input-moment', className);
     const t = translate(locale)

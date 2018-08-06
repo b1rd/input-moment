@@ -3,7 +3,6 @@ import cx from 'classnames';
 import { translate } from './locale'
 import range from 'lodash/range';
 import chunk from 'lodash/chunk';
-import './styles/calendar.scss'
 
 const Day = ({ i, w, d, className, currentDate, ...props }) => {
   const prevMonth = w === 0 && i > 7;
