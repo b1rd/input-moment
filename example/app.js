@@ -11,7 +11,7 @@ import timeIcon from '../assets/time-icon.svg'
 import timeIconActive from '../assets/time-icon-active.svg'
 import calendarIcon from '../assets/calendar-icon.svg'
 import calendarIconActive from '../assets/calendar-icon-active.svg'
-
+import 'src/styles/main.scss'
 class App extends Component {
   state = {
     m: ''

@@ -4,7 +4,6 @@ import moment from 'moment';
 import { translate } from './locale'
 import Calendar from './calendar';
 import Time from './time';
-import 'src/styles/main.scss'
 
 export default class InputMoment extends Component {
   static defaultProps = {
