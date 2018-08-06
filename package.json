@@ -1,6 +1,6 @@
 {
-  "name": "calendar-input-react",
-  "version": "1.0.1",
+  "name": "@skyeer/calendar-input-react",
+  "version": "1.0.3",
   "description": "React datetime picker powered by momentjs",
   "main": "index.js",
   "scripts": {
@@ -56,7 +56,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/skyeer/input-moment"
+    "url": "git+https://github.com/skyeer/input-moment.git"
   },
   "keywords": [
     "react",
@@ -69,5 +69,9 @@
   "bugs": {
     "url": "https://github.com/skyeer/input-moment"
   },
-  "homepage": "https://github.com/skyeer/input-moment#readme"
+  "homepage": "https://github.com/skyeer/input-moment#readme",
+  "directories": {
+    "example": "example",
+    "lib": "lib"
+  }
 }
