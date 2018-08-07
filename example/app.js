@@ -14,12 +14,17 @@ import calendarIconActive from '../assets/calendar-icon-active.svg'
 import 'src/styles/main.scss'
 class App extends Component {
   state = {
-    m: ''
+    m: '',
+    timeSet: false,
   };
 
   handleChange = m => {
     this.setState({ m });
   };
+
+  handleTimeChange = () => {
+    this.setState({ timeSet: true })
+  }
 
   handleSave = () => {
     console.log('saved', this.state.m.format('llll'));
@@ -35,6 +40,14 @@ class App extends Component {
         <form>
           <div className="input">
             <input type="text" value={this.state.m && this.state.m.format('llll')} readOnly />
+            {
+              !this.state.timeSet
+              ? <label>
+                  <span>{this.state.m && this.state.m.format('llll').split(this.state.m.format('LT'))[0]}</span>
+                  <span style={{ color: 'red' }}>{this.state.m && this.state.m.format('LT')}</span>
+                </label>
+              : <label>{this.state.m && this.state.m.format('llll')}</label>
+            }
           </div>
           <InputMoment
             moment={this.state.m}
@@ -42,6 +55,7 @@ class App extends Component {
             minStep={5}
             onSave={this.handleSave}
             locale="ru"
+            setTime={this.handleTimeChange}
             prevMonthIcon={`/${prevMonthIcon}`}
             nextMonthIcon={`/${nextMonthIcon}`}
             timeIcon={`/${timeIcon}`}
