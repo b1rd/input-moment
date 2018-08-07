@@ -31,18 +31,18 @@ export default class extends Component {
         </div>
 
         <div className="m-time__sliders">
-          <div className="m-time__sliders-text m-time__sliders-text_hours time-text">{t('hours')}:</div>
+          <div className="m-time__sliders-text m-time__sliders-text_hours">{t('hours')}:</div>
           <InputSlider
-            className="m-time__slider u-slider-time"
+            className="m-time__slider"
             xmin={0}
             xmax={23}
             xstep={this.props.hourStep}
             x={m.hour()}
             onChange={this.changeHours}
           />
-          <div className="m-time__sliders-text m-time__sliders-text_minutes time-text time-text__minutes">{t('minutes')}:</div>
+          <div className="m-time__sliders-text m-time__sliders-text_minutes">{t('minutes')}:</div>
           <InputSlider
-            className="m-time__slider u-slider-time"
+            className="m-time__slider"
             xmin={0}
             xmax={59}
             xstep={this.props.minStep}

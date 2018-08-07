@@ -55,26 +55,26 @@ export default class InputMoment extends Component {
     const t = translate(locale)
     return (
       <div className={cls} {...props}>
-        <div className="m-input-moment__options options">
+        <div className="m-input-moment__options">
           <button
             type="button"
-            className={cx('m-input-moment__button m-input-moment__button_date im-btn', { 'm-input-moment__button_active is-active': tab === 0 })}
+            className={cx('m-input-moment__button m-input-moment__button_date', { 'm-input-moment__button_active': tab === 0 })}
             onClick={e => this.handleClickTab(e, 0)}
           >
-            <img src={tab === 0 ? calendarIconActive : calendarIcon} className="m-input-moment__icon im-btn__icon" />
+            <img src={tab === 0 ? calendarIconActive : calendarIcon} className="m-input-moment__icon" />
             {t('date')}
           </button>
           <button
             type="button"
-            className={cx('m-input-moment__button m-input-moment__button_time im-btn', { 'm-input-moment__button_active is-active': tab === 1 })}
+            className={cx('m-input-moment__button m-input-moment__button_time', { 'm-input-moment__button_active': tab === 1 })}
             onClick={e => this.handleClickTab(e, 1)}
           >
-            <img src={tab === 1 ? timeIconActive : timeIcon} className="m-input-moment__icon im-btn__icon" />
+            <img src={tab === 1 ? timeIconActive : timeIcon} className="m-input-moment__icon" />
             {t('time')}
           </button>
         </div>
 
-        <div className="m-input-moment__tabs tabs">
+        <div className="m-input-moment__tabs">
           <Calendar
             className={cx('m-input-moment__tab m-calendar', { 'm-input-moment__tab_active': tab === 0 })}
             moment={stateMoment}
@@ -98,7 +98,7 @@ export default class InputMoment extends Component {
           <button
             type="button"
             disabled={!currentDate || !currentTime}
-            className="m-input-moment__button m-input-moment__button_save im-btn btn-save"
+            className="m-input-moment__button m-input-moment__button_save"
             onClick={this.handleSave}
           >
             {t('save')}
