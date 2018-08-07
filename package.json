@@ -1,6 +1,6 @@
 {
   "name": "@skyeer/calendar-input-react",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "React datetime picker powered by momentjs",
   "main": "index.js",
   "scripts": {
@@ -51,6 +51,7 @@
   "dependencies": {
     "classnames": "^2.2.0",
     "lodash": "^4.17.4",
+    "prop-types": "^15.6.2",
     "react-input-slider": "^4.0.0",
     "react-svg-inline": "^2.1.1"
   },

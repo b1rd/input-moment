@@ -24,7 +24,6 @@ export default class Calendar extends Component {
     if (prevMonth) m.subtract(1, 'month');
     if (nextMonth) m.add(1, 'month');
     m.date(i)
-    m.hours(0).minutes(0)
     this.props.onChange(m, 'currentDate');
   };
 
@@ -56,12 +55,12 @@ export default class Calendar extends Component {
     return (
       <div className={className}>
         <div className="m-calendar__toolbar">
-          <button type="button" className="m-calendar__button m-calendar__button_prev prev-month" onClick={this.prevMonth}>
-            <img className="m-calendar__icon m-calendar__icon_prev prev-month__icon" src={prevMonthIcon} />
+          <button type="button" className="m-calendar__button m-calendar__button_prev" onClick={this.prevMonth}>
+            <img className="m-calendar__icon m-calendar__icon_prev" src={prevMonthIcon} />
           </button>
           <span className="m-calendar__current-date">{m.format('MMMM YYYY')}</span>
-          <button type="button" className="m-calendar__button m-calendar__button_next next-month" onClick={this.nextMonth}>
-            <img className="m-calendar__icon m-calendar__icon_next next-month__icon" src={nextMonthIcon} />
+          <button type="button" className="m-calendar__button m-calendar__button_next" onClick={this.nextMonth}>
+            <img className="m-calendar__icon m-calendar__icon_next" src={nextMonthIcon} />
           </button>
         </div>
 

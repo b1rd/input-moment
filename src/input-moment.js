@@ -1,11 +1,24 @@
 import cx from 'classnames';
 import React, { Component } from 'react';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 import { translate } from './locale'
 import Calendar from './calendar';
 import Time from './time';
 
+const CALENDAR_TAB = 'currentDate'
+const TIME_TAB_NUMBER = 1
+
+
 export default class InputMoment extends Component {
+  static propTypes = {
+    moment: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+    locale: PropTypes.oneOf(['ru', 'en']),
+    minStep: PropTypes.number,
+    onChange: PropTypes.func.isRequired,
+    setTime: PropTypes.func,
+    onSave: PropTypes.func,
+  }
   static defaultProps = {
     minStep: 1,
     hourStep: 1,
@@ -19,6 +32,14 @@ export default class InputMoment extends Component {
   };
 
   handleChange = (m, key) => {
+    const { currentTime } = this.state
+    if (!currentTime) {
+      if (key === CALENDAR_TAB) {
+        this.setState({ tab: TIME_TAB_NUMBER })
+      } else {
+        this.props.setTime()
+      }
+    }
     this.setState({ [key]: m})
     this.props.onChange(m)
   }
@@ -48,33 +69,33 @@ export default class InputMoment extends Component {
       timeIconActive,
       calendarIcon,
       calendarIconActive,
-      ...props
+      onChange,
     } = this.props;
     const stateMoment = m || moment()
     const cls = cx('m-input-moment', className);
     const t = translate(locale)
     return (
-      <div className={cls} {...props}>
-        <div className="m-input-moment__options options">
+      <div className={cls} onChange={onChange}>
+        <div className="m-input-moment__options">
           <button
             type="button"
-            className={cx('m-input-moment__button m-input-moment__button_date im-btn', { 'm-input-moment__button_active is-active': tab === 0 })}
+            className={cx('m-input-moment__button m-input-moment__button_date', { 'm-input-moment__button_active': tab === 0 })}
             onClick={e => this.handleClickTab(e, 0)}
           >
-            <img src={tab === 0 ? calendarIconActive : calendarIcon} className="m-input-moment__icon im-btn__icon" />
+            <img src={tab === 0 ? calendarIconActive : calendarIcon} className="m-input-moment__icon" />
             {t('date')}
           </button>
           <button
             type="button"
-            className={cx('m-input-moment__button m-input-moment__button_time im-btn', { 'm-input-moment__button_active is-active': tab === 1 })}
+            className={cx('m-input-moment__button m-input-moment__button_time', { 'm-input-moment__button_active': tab === 1 })}
             onClick={e => this.handleClickTab(e, 1)}
           >
-            <img src={tab === 1 ? timeIconActive : timeIcon} className="m-input-moment__icon im-btn__icon" />
+            <img src={tab === 1 ? timeIconActive : timeIcon} className="m-input-moment__icon" />
             {t('time')}
           </button>
         </div>
 
-        <div className="m-input-moment__tabs tabs">
+        <div className="m-input-moment__tabs">
           <Calendar
             className={cx('m-input-moment__tab m-calendar', { 'm-input-moment__tab_active': tab === 0 })}
             moment={stateMoment}
@@ -98,7 +119,7 @@ export default class InputMoment extends Component {
           <button
             type="button"
             disabled={!currentDate || !currentTime}
-            className="m-input-moment__button m-input-moment__button_save im-btn btn-save"
+            className="m-input-moment__button m-input-moment__button_save"
             onClick={this.handleSave}
           >
             {t('save')}
