@@ -53,7 +53,6 @@ export default class InputMoment extends Component {
     const stateMoment = m || moment()
     const cls = cx('m-input-moment', className);
     const t = translate(locale)
-    console.log(this.props)
     return (
       <div className={cls} {...props}>
         <div className="m-input-moment__options options">
