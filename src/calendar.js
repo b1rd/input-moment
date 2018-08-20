@@ -4,13 +4,17 @@ import { translate } from './locale'
 import range from 'lodash/range';
 import chunk from 'lodash/chunk';
 
-const Day = ({ i, w, d, className, currentDate, ...props }) => {
+const DAY = 'DD'
+const MONTH_YEAR = 'MM.YYYY'
+
+const Day = ({ i, w, d, className, currentDate, currentDayIndex, ...props }) => {
   const prevMonth = w === 0 && i > 7;
   const nextMonth = w >= 4 && i <= 14;
   const cls = cx('m-calendar__td m-calendar__td_body', {
     'prev-month': prevMonth,
     'm-calendar__td_next next-month-calendar': nextMonth,
-    'current-day': !prevMonth && !nextMonth && i === d && currentDate
+    'current-day': !prevMonth && !nextMonth && i === d && currentDate,
+    'today': currentDayIndex === i && !prevMonth && !nextMonth,
   });
   return <td className={cls} {...props}>{i}</td>;
 };
@@ -45,12 +49,17 @@ export default class Calendar extends Component {
     const d2 = m.clone().date(1).day();
     const d3 = m.clone().endOf('month').date();
     const days = [].concat(
-      range(d1 - d2 + 1, d1 + 1),
+      range(d1 - d2 + 2, d1 + 1),
       range(1, d3 + 1),
       range(1, 42 - d3 - d2 + 1)
     );
     const t = translate(locale)
     const weeks = t('week')
+
+    let currentDayIndex = null
+    if (moment(new Date()).format(MONTH_YEAR)=== m.format(MONTH_YEAR)) {
+      currentDayIndex = parseInt(moment(new Date()).format(DAY), 10)
+    }
     
     return (
       <div className={className}>
@@ -81,6 +90,7 @@ export default class Calendar extends Component {
                     d={d}
                     w={w}
                     currentDate={currentDate}
+                    currentDayIndex={currentDayIndex}
                     onClick={() => this.selectDate(i, w)}
                   />
                 )}

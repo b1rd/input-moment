@@ -49,11 +49,11 @@
     }
     &_body {
       color: #63729a;
+      border-radius: 100%;
+      border-color: $color-blue;
       &:hover {
         background: $color-blue;
-        border-color: $color-blue;
         color: $color-white;
-        border-radius: 100%;
       }
     }
     &_next {
@@ -61,9 +61,13 @@
     }
   }
   .current-day {
-    background: $color-blue;
+    background-color: $color-blue;
     border-color: $color-blue;
     color: $color-white;
+    border-radius: 100%;
+  }
+  .today {
+    background-color: #DADDE5;
     border-radius: 100%;
   }
 }
