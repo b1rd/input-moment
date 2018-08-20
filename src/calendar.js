@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
 import { translate } from './locale'
+import moment from 'moment';
 import range from 'lodash/range';
 import chunk from 'lodash/chunk';
 
