@@ -16,6 +16,7 @@ class App extends Component {
   state = {
     m: '',
     timeSet: false,
+    toggle: false,
   };
 
   handleChange = m => {
@@ -37,6 +38,7 @@ class App extends Component {
           {packageJson.name}: {packageJson.version}
         </h1>
         <h2>{packageJson.description}</h2>
+        <button onClick={() => this.setState({ toggle: !this.state.toggle })} style={{ width: '100px', height: '100px', backgroundColor: 'red'}}>kokok</button>
         <form>
           <div className="input">
             <input type="text" value={this.state.m && this.state.m.format('llll')} readOnly />
@@ -49,7 +51,7 @@ class App extends Component {
               : <label>{this.state.m && this.state.m.format('llll')}</label>
             }
           </div>
-          <InputMoment
+          {this.state.toggle && <InputMoment
             moment={this.state.m}
             onChange={this.handleChange}
             minStep={5}
@@ -62,7 +64,7 @@ class App extends Component {
             timeIconActive={`/${timeIconActive}`}
             calendarIcon={`/${calendarIcon}`}
             calendarIconActive={`/${calendarIconActive}`}
-          />
+          />}
         </form>
       </div>
     );

@@ -32,12 +32,16 @@ export default class InputMoment extends Component {
   };
 
   componentDidMount() {
-    const m = moment()
-    m.set({
-      hour:12,minute:0,second:0,millisecond:0
-    })
-    this.setState({ currentDate: m })
-    this.props.onChange(m)
+    if (!this.props.moment) {
+      const m = moment()
+      m.set({
+        hour:12,minute:0,second:0,millisecond:0
+      })
+      this.setState({ currentDate: m })
+      this.props.onChange(m)
+    } else {
+      this.setState({ currentDate: this.props.moment, currentTime: this.props.moment })
+    }
   }
 
   handleChange = (m, key) => {
@@ -94,11 +98,6 @@ export default class InputMoment extends Component {
       onChange,
     } = this.props;
     const stateMoment = m || moment()
-    if (!currentTime) {
-      stateMoment.set({
-        hour:12,minute:0,second:0,millisecond:0
-      })
-    }
     const cls = cx('m-input-moment', className);
     const t = translate(locale)
     return (
