@@ -31,11 +31,24 @@ export default class InputMoment extends Component {
     currentTime: null
   };
 
+  componentDidMount() {
+    const m = moment()
+    m.set({
+      hour:12,minute:0,second:0,millisecond:0
+    })
+    this.setState({ currentDate: m })
+    this.props.onChange(m)
+  }
+
   handleChange = (m, key) => {
-    const { currentTime } = this.state
+    const { currentTime, currentDate } = this.state
     if (!currentTime) {
       if (key === CALENDAR_TAB) {
         this.setState({ tab: TIME_TAB_NUMBER })
+        const m = currentDate
+        this.setState({ currentTime: m})
+        this.props.onChange(m)
+        this.props.setTime()
       } else {
         this.props.setTime()
       }
@@ -51,7 +64,16 @@ export default class InputMoment extends Component {
 
   handleSave = e => {
     e.preventDefault();
-    if (this.props.onSave) this.props.onSave();
+    const { currentTime, currentDate } = this.state
+    if (!currentTime) {
+      this.setState({ tab: TIME_TAB_NUMBER })
+      const m = currentDate
+      this.setState({ currentTime: m})
+      this.props.onChange(m)
+      this.props.setTime()
+    } else {
+      this.props.onSave();
+    }
   };
 
   render() {
@@ -123,7 +145,6 @@ export default class InputMoment extends Component {
         {this.props.onSave ? (
           <button
             type="button"
-            disabled={!currentDate || !currentTime}
             className="m-input-moment__button m-input-moment__button_save"
             onClick={this.handleSave}
           >

@@ -60,14 +60,14 @@
       display: none;
     }
   }
+  .today {
+    background-color: #DADDE5;
+    border-radius: 100%;
+  }
   .current-day {
     background-color: $color-blue;
     border-color: $color-blue;
     color: $color-white;
-    border-radius: 100%;
-  }
-  .today {
-    background-color: #DADDE5;
     border-radius: 100%;
   }
 }

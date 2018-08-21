@@ -3,7 +3,7 @@ const TRANSLATIONS = {
     date: 'Дата',
     time: 'Время',
     week: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
-    save: 'Готово',
+    save: 'Выбрать',
     hours: 'Часы',
     minutes: 'Минуты'
   },

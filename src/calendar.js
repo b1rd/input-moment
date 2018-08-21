@@ -14,7 +14,7 @@ const Day = ({ i, w, d, className, currentDate, currentDayIndex, ...props }) => 
   const cls = cx('m-calendar__td m-calendar__td_body', {
     'prev-month': prevMonth,
     'm-calendar__td_next next-month-calendar': nextMonth,
-    'current-day': !prevMonth && !nextMonth && i === d && currentDate,
+    'current-day': !prevMonth && !nextMonth && i === d,
     'today': currentDayIndex === i && !prevMonth && !nextMonth,
   });
   return <td className={cls} {...props}>{i}</td>;
