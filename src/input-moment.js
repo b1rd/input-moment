@@ -46,16 +46,14 @@ export default class InputMoment extends Component {
 
   handleChange = (m, key) => {
     const { currentTime, currentDate } = this.state
-    if (!currentTime) {
-      if (key === CALENDAR_TAB) {
-        this.setState({ tab: TIME_TAB_NUMBER })
-        const m = currentDate
-        this.setState({ currentTime: m})
-        this.props.onChange(m)
-        this.props.setTime()
-      } else {
-        this.props.setTime()
-      }
+    if (key === CALENDAR_TAB) {
+      this.setState({ tab: TIME_TAB_NUMBER })
+      const m = currentDate
+      this.setState({ currentTime: m})
+      this.props.onChange(m)
+      this.props.setTime()
+    } else {
+      this.props.setTime()
     }
     this.setState({ [key]: m})
     this.props.onChange(m)
