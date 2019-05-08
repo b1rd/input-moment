@@ -1,6 +1,6 @@
-@import './variables';
+@import 'variables.pcss';
 .m-time {
-  color: $color-white;
+  color: var(--input-moment-color-white);
   &__showtime {
     text-align: center;
     &_time {
@@ -12,7 +12,7 @@
       font-size: 32px;
       font-weight: bold;
       color: #122966;
-      line-height: 65px;
+      line-height: 70px;
       text-align: center;
     }
     &_separator {
@@ -47,34 +47,34 @@
   &__slider {
     position: relative;
     display: inline-block;
-    background-color: $color-gray;
+    background-color: var(--input-moment-color-gray);
     border-radius: 3px;
-    height: $slider-size;
+    height: var(--input-moment-slider-size);
     width: 100%;
     cursor: pointer;
     .value {
       position: absolute;
-      background-color: $color-blue;
+      background-color: var(--input-moment-color-blue);
       border-radius: 3px;
       top: 0;
       height: 100%;
     }
-  
+
     .handle {
       position: absolute;
-      width: $slider-size;
-      height: $slider-size;
-  
+      width: var(--input-moment-slider-size);
+      height: var(--input-moment-slider-size);
+
       &:after {
         position: relative;
         display: block;
         content: '';
-        top: -$slider-fix / 2;
-        left: -($slider-size + $slider-fix)/2;
-        width: $slider-size + $slider-fix;
-        height: $slider-size + $slider-fix;
+        top: calc(var(--input-moment-slider-size) * -1 / 2);
+        left: calc((var(--input-moment-slider-size) * -1 + var(--input-moment-slider-size)) / 2);
+        width: calc(var(--input-moment-slider-size) + var(--input-moment-slider-size));
+        height: calc(var(--input-moment-slider-size) + var(--input-moment-slider-size));
         background-color: #fff;
-        border: 2px solid $color-blue;
+        border: 2px solid var(--input-moment-color-blue);
         border-radius: 50%;
         cursor: pointer;
       }

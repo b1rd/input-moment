@@ -1,8 +1,8 @@
-@import './variables';
+@import 'variables.pcss';
 .m-calendar {
   &__toolbar {
     line-height: 30px;
-    color: $color-blue;
+    color: var(--input-moment-color-blue);
     text-align: center;
     margin-bottom: 13px;
   }
@@ -41,7 +41,7 @@
     padding: 5px 0;
     text-align: center;
     cursor: pointer;
-    color: $color-gray;
+    color: var(--input-moment-color-gray);
     &_head {
       color: #22366d;
       font-size: 14px;
@@ -50,10 +50,10 @@
     &_body {
       color: #63729a;
       border-radius: 100%;
-      border-color: $color-blue;
+      border-color: var(--input-moment-color-blue);
       &:hover {
-        background: $color-blue;
-        color: $color-white;
+        background: var(--input-moment-color-blue);
+        color: var(--input-moment-color-white);
       }
     }
     &_next {
@@ -65,9 +65,9 @@
     border-radius: 100%;
   }
   .current-day {
-    background-color: $color-blue;
-    border-color: $color-blue;
-    color: $color-white;
+    background-color: var(--input-moment-color-blue);
+    border-color: var(--input-moment-color-blue);
+    color: var(--input-moment-color-white);
     border-radius: 100%;
   }
 }
