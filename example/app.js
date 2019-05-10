@@ -1,5 +1,5 @@
 
-import './app.scss';
+import './app.pcss';
 import moment from 'moment';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
@@ -11,7 +11,7 @@ import timeIcon from '../assets/time-icon.svg'
 import timeIconActive from '../assets/time-icon-active.svg'
 import calendarIcon from '../assets/calendar-icon.svg'
 import calendarIconActive from '../assets/calendar-icon-active.svg'
-import 'src/styles/main.scss'
+import '../src/styles/main.pcss'
 class App extends Component {
   state = {
     m: '',
